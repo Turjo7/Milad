@@ -1,0 +1,18 @@
+# HTCondor submit file - main.sub
+
+universe = vanilla
+executable = /home/ubuntu/data/code/main.sh
+
+arguments = "$(Process)"
+
+output     = /home/ubuntu/data/code/out/foldername_$(Process).out
+error      = /home/ubuntu/data/code/err/foldername_$(Process).err
+log        = /home/ubuntu/data/code/log/foldername_$(Process).log
+
+request_cpus = 2
+request_memory = 2048
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+
+queue 2
+
